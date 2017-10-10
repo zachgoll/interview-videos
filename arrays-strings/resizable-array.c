@@ -1,19 +1,21 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "array.h"
 
 int		main(void){
 
-	int array[] = {1, 2, 3, 4, 5, 6, 7, 8};
+	R_array ra;
 
-	int size_of_array = sizeof(array) / sizeof(array[0]);
+	init_array(&ra);
 
-	printf("%d\n", size_of_array);
+	printf("Max Size: %d\nCurrent Size: %d\n", ra.max_size, ra.cur_size);
 
-	for (int i = 0; i < size_of_array; i++){
+	for (int i = 0; i < 15; i++){
 
-		printf("%d, ", array[i]);
+		append_array(&ra, 30);
 	}
 
-	printf("\n");
+	printf("Max Size: %d\nCurrent Size: %d\n", ra.max_size, ra.cur_size);
+
+	free_array(&ra);
 
 }
